@@ -33,3 +33,27 @@
   padding: 10px 5px;
   margin: 10px 0;
 }
+
+@media screen and (max-width: 769px) {
+  .signin {
+    flex-direction: column;
+    height: auto;
+    padding: 0 20px;
+  }
+
+  .signin__image {
+    width: 100%;
+  }
+
+  .signin__image img {
+    height: 400px;
+  }
+
+  .signin__container {
+    width: 100%;
+  }
+
+  .login {
+    width: 100%;
+  }
+}

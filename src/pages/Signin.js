@@ -1,13 +1,33 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext"
 import Button from '../components/Button'
 import './Signin.css'
 
 const SigninPage = () => {
+  const { signIn, singInWithGoogle } = useAuth();
+  const history = useHistory();
+
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const onClick = () => {
     console.log(email, password)
+  }
+
+  const handleGoogleSignIn = async () => {
+    try {
+      setGoogleLoading(true);
+      await singInWithGoogle();
+      history.push("/");
+    } catch (error) {
+      setError(error.message);
+    }
+
+    setLoading(false);
   }
 
   return (
@@ -36,6 +56,11 @@ const SigninPage = () => {
           <Button
             label="Sign in"
             onClick={onClick}
+          />
+          <Button
+            label="Continue with Google"
+            type="submit"
+            onClick={handleGoogleSignIn}
           />
         </div>
       </div>

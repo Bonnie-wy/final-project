@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import './App.css'
-import Form from './components/Form'
+import Homepage from './pages/Homepage'
 import SignIn from './pages/Signin'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={user ? <Form /> : <Navigate to="/sign-in" />} />
+        <Route path="/" exact element={user ? <Homepage /> : <Navigate to="/sign-in" />} />
         <Route path="/sign-in" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
