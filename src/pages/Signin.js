@@ -1,33 +1,25 @@
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 import Button from '../components/Button'
 import './Signin.css'
 
 const SigninPage = () => {
-  const { signIn, singInWithGoogle } = useAuth();
-  const history = useHistory();
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [loading, setLoading] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const onClick = () => {
-    console.log(email, password)
-  }
-
-  const handleGoogleSignIn = async () => {
+  const handleSubmit = async () => {
     try {
-      setGoogleLoading(true);
-      await singInWithGoogle();
-      history.push("/");
+      const res = await signIn(email, password);
+      navigate('/');
     } catch (error) {
+      console.log(error)
       setError(error.message);
     }
-
-    setLoading(false);
   }
 
   return (
@@ -55,12 +47,7 @@ const SigninPage = () => {
           />
           <Button
             label="Sign in"
-            onClick={onClick}
-          />
-          <Button
-            label="Continue with Google"
-            type="submit"
-            onClick={handleGoogleSignIn}
+            onClick={handleSubmit}
           />
         </div>
       </div>
