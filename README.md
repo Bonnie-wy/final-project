@@ -10,7 +10,7 @@ Hope you like it!
 
 ## Tech Stack
 
-[ReactJS](https://reactjs.org/) and [firebase](https://firebase.google.com/)
+[ReactJS](https://reactjs.org/) and [Firebase](https://firebase.google.com/)
 
 Hosted on:
 [Vercel](https://vercel.com/)
@@ -22,8 +22,10 @@ npm version: v8.1.2
 
 ## Usage
 
-Install dependencies
+Install dependencies\
 `yarn or npm install`
 
-Run React dev server (http://localhost:3000)
+Run React dev server (http://localhost:3000)\
 `yarn start or npm start`
+
+Note: you will need to have firebase credentials and supply them in a .env file.
