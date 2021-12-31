@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { collection, getDocs } from 'firebase/firestore'
 import { projectFirestore } from '../firebase'
 import Card from '../components/Card'
@@ -34,7 +35,10 @@ const Homepage = () => {
         <Card>
           <AreaChart workouts={mapped}/>
         </Card>
-        <img src="./biking.svg" alt="biking" />
+        <div className="homepage__section">
+          <Link to="./workout">Add Workout</Link>
+          <img src="./biking.svg" alt="biking" />
+        </div>
       </div>
     </Layout>
   )

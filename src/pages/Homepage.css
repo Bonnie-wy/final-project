@@ -36,3 +36,29 @@ h5 {
 .homepage__container img {
   height: 250px;
 }
+
+.homepage__section {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.homepage__section a {
+  padding: 15px 36px;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: black 2px solid;
+  cursor: pointer;
+  margin-top: 20px;
+  align-content: flex-start;
+  text-decoration: none;
+  height: fit-content;
+}
+
+.homepage__section a:hover,
+.homepage__section a:active {
+  background-color: rgb(58, 58, 58);
+  transition: 0.3s ease-in-out;
+}
