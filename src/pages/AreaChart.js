@@ -30,6 +30,9 @@ const AreaChart = ({ workouts }) => {
         enabled: false
       }
     },
+    title: {
+      text: 'recent activity'
+    },
     dataLabels: {
       enabled: false
     },

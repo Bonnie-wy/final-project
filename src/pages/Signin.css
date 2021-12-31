@@ -45,6 +45,13 @@
   font-size: 38px;
 }
 
+.signin__container a {
+  text-decoration: none;
+  color: #ff9d00;
+  font-size: bold;
+  font-weight: 800;
+}
+
 @media screen and (max-width: 769px) {
   .signin {
     flex-direction: column;
