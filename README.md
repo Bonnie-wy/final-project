@@ -4,7 +4,7 @@ This is an app called Fitness Daily created as a final project for CS50.
 
 ## About
 
-Fitness Daily helps you track your workout activities. Simply sign in with your email and add your workout activities. [Click here to site](https://fitness-first-five.vercel.app/)
+Fitness Daily helps you track your workout activities. Simply sign in with your email and add your workout activities. [Demo](https://youtu.be/G_n0fd50dT8) [Click here to site](https://fitness-first-five.vercel.app/)
 
 Hope you like it!
 
