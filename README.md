@@ -25,7 +25,7 @@ npm version: `v8.1.2`
 Install dependencies\
 `yarn or npm install`
 
-Run React dev server (http://localhost:3000).\
+Run React dev server (http://localhost:3000) \
 `yarn start or npm start`
 
 Note: you will need to have firebase credentials and supply them in a .env file.
