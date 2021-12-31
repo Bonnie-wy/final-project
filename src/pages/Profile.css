@@ -1,0 +1,9 @@
+.profile__container {
+  padding: 40px 40px 0 50px;
+  width: 100%;
+  background-color: #f4f4f5;
+}
+
+.profile__container h1 {
+  margin-bottom: 50px;
+}

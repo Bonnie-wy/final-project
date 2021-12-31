@@ -4,7 +4,7 @@ import './Logo.css'
 const Logo = () => {
   return (
     <div className="logo">
-      Fitness First
+      Fitness Daily
     </div>
   )
 }

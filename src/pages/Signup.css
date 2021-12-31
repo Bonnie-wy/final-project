@@ -1,4 +1,4 @@
-.signin {
+.signup {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,15 +8,15 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.signin__image {
+.signup__image {
   width: 50%;
 }
 
-.signin__image img {
+.signup__image img {
   width: 100%;
 }
 
-.signin__container {
+.signup__container {
   width: 50%;
   display: flex;
   justify-content: center;
@@ -36,8 +36,8 @@
 
 .login__logo {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 60px;
   font-size: 60px;
 }
 
@@ -45,22 +45,26 @@
   font-size: 38px;
 }
 
+.login__logo > p {
+  font-size: 16px;
+}
+
 @media screen and (max-width: 769px) {
-  .signin {
+  .signup {
     flex-direction: column;
     height: auto;
     padding: 0 20px;
   }
 
-  .signin__image {
+  .signup__image {
     width: 100%;
   }
 
-  .signin__image img {
+  .signup__image img {
     height: 400px;
   }
 
-  .signin__container {
+  .signup__container {
     width: 100%;
   }
 

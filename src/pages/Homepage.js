@@ -3,11 +3,12 @@ import { collection, getDocs } from 'firebase/firestore'
 import { projectFirestore } from '../firebase'
 import Card from '../components/Card'
 import Layout from '../components/Layout'
+import AreaChart from './AreaChart'
 import './Homepage.css'
 
 const Homepage = () => {
   const [workout, setWorkout] = useState(null);
-  const mapped = [];
+  const [mapped, setMapped] = useState([])
 
   const getData = async () => {
     try {
@@ -15,7 +16,7 @@ const Homepage = () => {
 
       if (fetchedData) {
         console.log('f',fetchedData)
-        return setWorkout(fetchedData);
+        return setWorkout(fetchedData)
       }
     } catch(error) {
       console.log('error', error);
@@ -24,17 +25,15 @@ const Homepage = () => {
 
   useEffect (() => {
     getData()
-    workout && workout.forEach(workout => mapped.push(workout.data()))
-    console.log(mapped);
-  },[]);
+    workout && workout.forEach(workout => setMapped((prev) => [...prev, workout.data()]))
+  },[])
 
   return (
     <Layout>
       <div className="homepage__container">
         <h1>Dashboard</h1>
         <Card>
-          <p>Hey :D</p>
-          <p>hi :3</p>
+          <AreaChart workouts={mapped}/>
         </Card>
       </div>
     </Layout>

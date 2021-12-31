@@ -30,8 +30,8 @@ export default function AuthProvider({children}) {
     return response
   }
 
-  const logout = async () => {
-    const response = await signOut();
+  const logout = () => {
+    const response = signOut();
     return response
   }
 

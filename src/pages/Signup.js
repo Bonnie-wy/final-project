@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 import Button from '../components/Button'
 import Logo from '../components/Logo'
-import './Signin.css'
+import './Signup.css'
 
-const SigninPage = () => {
-  const { signIn } = useAuth();
+const SignUpPage = () => {
+  const { signUp } = useAuth();
   const navigate = useNavigate();
 
+  const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState(null);
 
   const handleSubmit = async () => {
     try {
-      const res = await signIn(email, password);
+      const res = await signUp(userName, email, password);
       navigate('/');
     } catch (error) {
       console.log(error)
@@ -24,15 +25,24 @@ const SigninPage = () => {
   }
 
   return (
-    <div className="signin">
-      <div className="signin__image">
+    <div className="signup">
+      <div className="signup__image">
         <img src="./fitness.svg" alt="fitness"/>
       </div>
-      <div className="signin__container">
+      <div className="signup__container">
         <div className="login">
           <div className="login__logo">
             <Logo />
+            <p>Sign up</p>
           </div>
+          <label htmlFor="name">User Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Enter user name"
+            onChange={(e) => setUserName(e.target.value)}
+          />
           <label htmlFor="email">Email</label>
           <input
             id="email"
@@ -50,14 +60,13 @@ const SigninPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button
-            label="Sign in"
+            label="Submit"
             onClick={handleSubmit}
           />
-          <p>Want to become a member? <Link to="/sign-up">Sign Up</Link></p>
         </div>
       </div>
     </div>
   )
 }
 
-export default SigninPage
+export default SignUpPage
