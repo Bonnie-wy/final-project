@@ -9,14 +9,13 @@ const SignUpPage = () => {
   const { signUp } = useAuth();
   const navigate = useNavigate();
 
-  const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState(null);
 
   const handleSubmit = async () => {
     try {
-      const res = await signUp(userName, email, password);
+      const res = await signUp(email, password);
       navigate('/');
     } catch (error) {
       console.log(error)
@@ -35,14 +34,6 @@ const SignUpPage = () => {
             <Logo />
             <p>Sign up</p>
           </div>
-          <label htmlFor="name">User Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Enter user name"
-            onChange={(e) => setUserName(e.target.value)}
-          />
           <label htmlFor="email">Email</label>
           <input
             id="email"

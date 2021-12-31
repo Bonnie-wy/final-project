@@ -25,7 +25,6 @@ const Form = () => {
         timeStamp: moment().format('DD/MM/YYYY')
       });
       navigate('../')
-      console.log(docRef)
     } catch (error) {
       console.log(error);
     }

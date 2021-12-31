@@ -29,6 +29,11 @@
   justify-content: center;
 }
 
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
 .login input {
   padding: 10px 5px;
   margin: 10px 0;

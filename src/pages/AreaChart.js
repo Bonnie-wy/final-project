@@ -3,8 +3,6 @@ import Chart from 'react-apexcharts'
 
 const AreaChart = ({ workouts }) => {
 
-  console.log(workouts)
-
   const dates = workouts.map(workout => {
     const splitted = workout.timeStamp.split("/")
     const newDate = new Date(+splitted[2], splitted[1] - 1, splitted[0]).toString().split(" ")
@@ -12,7 +10,7 @@ const AreaChart = ({ workouts }) => {
   })
 
   const counts = {}
-  dates.forEach((x) => { counts[x] = (counts[x] || 0) + 1; })
+  dates.sort().forEach((x) => { counts[x] = (counts[x] || 0) + 1; })
 
   const xAxis = []
   const yAxis = []
@@ -25,13 +23,13 @@ const AreaChart = ({ workouts }) => {
   const options = {
     chart: {
       type: 'area',
-      height: 350,
+      height: 250,
       zoom: {
         enabled: false
       }
     },
     title: {
-      text: 'recent activity'
+      text: 'Recent Activity'
     },
     dataLabels: {
       enabled: false
@@ -48,10 +46,17 @@ const AreaChart = ({ workouts }) => {
       }
     },
     xaxis: {
+      name: 'Date',
       categories: xAxis
     },
     yaxis: {
-      opposite: true
+      name: 'Activity',
+      min: 0,
+      labels: {
+        formatter: function(val) {
+          return val.toFixed(0)
+        }
+      }
     },
     legend: {
       horizontalAlign: 'left'
@@ -67,7 +72,7 @@ const AreaChart = ({ workouts }) => {
       options={options}
       series={series}
       type="area"
-      height={350} />
+      height={250} />
   )
 }
 

@@ -31,7 +31,7 @@ export default function AuthProvider({children}) {
   }
 
   const logout = () => {
-    const response = signOut();
+    const response = auth.signOut();
     return response
   }
 

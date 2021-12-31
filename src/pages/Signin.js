@@ -13,9 +13,11 @@ const SigninPage = () => {
   const [password, setPassword] = useState();
   const [error, setError] = useState(null);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
     try {
-      const res = await signIn(email, password);
+      await signIn(email, password);
       navigate('/');
     } catch (error) {
       console.log(error)
@@ -33,26 +35,28 @@ const SigninPage = () => {
           <div className="login__logo">
             <Logo />
           </div>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="text"
-            placeholder="Enter email address"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="text"
-            placeholder="Enter password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button
-            label="Sign in"
-            onClick={handleSubmit}
-          />
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="Enter email address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button
+              label="Sign in"
+              type="submit"
+            />
+          </form>
           <p>Want to become a member? <Link to="/sign-up">Sign Up</Link></p>
         </div>
       </div>

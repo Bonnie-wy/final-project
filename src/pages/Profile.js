@@ -2,14 +2,10 @@ import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
-import Button from '../components/Button'
 import './Profile.css'
 
 const Profile = () => {
-  const { user, logout } = useAuth();
-  console.log(logout);
-
-  console.log(user);
+  const { user } = useAuth();
 
   return (
     <Layout>
@@ -18,11 +14,8 @@ const Profile = () => {
         <Card>
           {user.userName && <p>Name: {user.userName}</p>}
           {user.email && <p>Email: {user.email}</p>}
-          <Button
-            label="Log out"
-            onClick={logout}
-          />
         </Card>
+        <img src="./pilates.svg" alt="pilates" />
       </div>
     </Layout>
   )

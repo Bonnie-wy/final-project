@@ -7,7 +7,6 @@ import AreaChart from './AreaChart'
 import './Homepage.css'
 
 const Homepage = () => {
-  const [workout, setWorkout] = useState(null);
   const [mapped, setMapped] = useState([])
 
   const getData = async () => {
@@ -15,8 +14,7 @@ const Homepage = () => {
       const fetchedData = await getDocs(collection(projectFirestore, 'workout'))
 
       if (fetchedData) {
-        console.log('f',fetchedData)
-        return setWorkout(fetchedData)
+        fetchedData && fetchedData.forEach(workout => setMapped((prev) => [...prev, workout.data()]))
       }
     } catch(error) {
       console.log('error', error);
@@ -25,16 +23,18 @@ const Homepage = () => {
 
   useEffect (() => {
     getData()
-    workout && workout.forEach(workout => setMapped((prev) => [...prev, workout.data()]))
   },[])
 
   return (
     <Layout>
       <div className="homepage__container">
-        <h1>Dashboard</h1>
+        <div className="homepage__header">
+          <h1>Dashboard</h1>
+        </div>
         <Card>
           <AreaChart workouts={mapped}/>
         </Card>
+        <img src="./biking.svg" alt="biking" />
       </div>
     </Layout>
   )
