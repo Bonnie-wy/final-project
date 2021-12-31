@@ -22,31 +22,36 @@
   justify-content: center;
 }
 
-.login {
+.signup__container .login {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.login input {
+.signup__container .login input {
   padding: 10px 5px;
   margin: 10px 0;
 }
 
-.login__logo {
+.signup__container .login__logo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 60px;
+  margin-bottom: 15px;
 }
 
-.login__logo > div {
+.signup__container .login__logo > div {
   font-size: 38px;
+  display: flex;
+  justify-content: center;
 }
 
-.login__logo > p {
+.signup__container .login__logo > p {
   font-size: 16px;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media screen and (max-width: 769px) {
@@ -68,11 +73,11 @@
     width: 100%;
   }
 
-  .login {
+  .signup__container .login {
     width: 100%;
   }
 
-  .login__logo > div {
+  .signup__container .login__logo > div {
     font-size: 30px;
   }
 }
