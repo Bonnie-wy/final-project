@@ -18,7 +18,7 @@ Hosted on:
 ## Reqirements
 
 Node version: v16.13.1\
-npm version: v8.1.2\
+npm version: v8.1.2
 
 ## Usage
 
